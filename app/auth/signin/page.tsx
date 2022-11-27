@@ -1,11 +1,15 @@
 import { getProviders } from "next-auth/react";
-import Image from "next/image";
+import Header from "../../Header";
 import SignInComponent from "./SignInComponent";
+import { unstable_getServerSession } from "next-auth/next";
 
 async function SignInPage() {
   const providers = await getProviders();
+  const session = await unstable_getServerSession();
+
   return (
-    <div className="grid justify-center bg-zinc-900 w-full pt-20 h-[90vh]">
+    <div className="space-y-40 bg-zinc-900 w-full h-screen">
+      <Header session={session} />
       <SignInComponent providers={providers} />
     </div>
   );

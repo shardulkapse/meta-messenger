@@ -19,7 +19,7 @@ function SignInComponent({ providers }: Props) {
               })
             }
           >
-            Sing In with {provider.name}
+            Sign In with {provider.name}
           </button>
         </div>
       ))}

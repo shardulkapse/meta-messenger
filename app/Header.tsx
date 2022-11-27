@@ -1,11 +1,9 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import LogoutButton from "./LogoutButton";
-import { unstable_getServerSession } from "next-auth/next";
 
-async function Header() {
-  const session = await unstable_getServerSession();
-
+function Header({ session }: any) {
   if (session)
     return (
       <header className="sticky top-0 z-50 bg-zinc-900 flex justify-between items-center p-10 shadow-lg shadow-blue-500/60">

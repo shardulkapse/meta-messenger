@@ -3,6 +3,7 @@ import ChatInput from "./ChatInput";
 import MessageList from "./MessageList";
 import { unstable_getServerSession } from "next-auth/next";
 import { Providers } from "./providers";
+import Header from "./Header";
 
 async function Homepage() {
   const data = await fetch(
@@ -15,6 +16,7 @@ async function Homepage() {
   return (
     <Providers session={session}>
       <main className="bg-zinc-900">
+        <Header session={session} />
         <MessageList initialMessages={messages} />
         <ChatInput session={session} />
       </main>
